@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/mn_alphaXml"
+        android:title="alpha_xml" />
+
+    <item
+        android:id="@+id/mn_alphaCode"
+        android:title="alpha_code" />
+
+    <item
+        android:id="@+id/mn_scaleXml"
+        android:title="scale_xml" />
+
+    <item
+        android:id="@+id/mn_scaleCode"
+        android:title="scale_code" />
+
+
+    <item
+        android:id="@+id/mn_translateXml"
+        android:title="translate_xml" />
+
+    <item
+        android:id="@+id/mn_translateCode"
+        android:title="translate_code" />
+
+    <item
+        android:id="@+id/mn_rotateXml"
+        android:title="rotate_xml" />
+
+    <item
+        android:id="@+id/mn_rotateCode"
+        android:title="rotate_code" />
+
+    <item
+        android:id="@+id/mn_animationSet"
+        android:title="animationSet"
+        />
+
+    <item
+        android:id="@+id/mn_fillAfter"
+        android:title="fillAfter"
+        />
+</menu>
