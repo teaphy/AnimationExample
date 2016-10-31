@@ -39,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 break;
             case R.id.btn_frame:
+                intent = new Intent(this, FrameActivity.class);
+                startActivity(intent);
                 break;
             case R.id.btn_property:
                 break;

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/mn_xmlStart"
+        android:title="xml_start" />
+
+    <item
+        android:id="@+id/mn_xmlStop"
+        android:title="xml_stop" />
+
+    <item
+        android:id="@+id/mn_codeStart"
+        android:title="code_start" />
+
+
+    <item
+        android:id="@+id/mn_codeStop"
+        android:title="code_stop" />
+
+</menu>
