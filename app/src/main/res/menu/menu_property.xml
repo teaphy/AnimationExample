@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/mn_valueAnimatorStart"
+        android:title="ValueAnimator_Start"
+        />
+    <item
+        android:id="@+id/mn_valueAnimatorCancel"
+        android:title="ValueAnimator_Cancel"
+        />
+</menu>

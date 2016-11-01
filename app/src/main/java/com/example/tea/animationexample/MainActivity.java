@@ -43,6 +43,10 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 break;
             case R.id.btn_property:
+                intent = new Intent(this, PropertyActivity.class);
+                startActivity(intent);
+                break;
+            default:
                 break;
         }
     }
