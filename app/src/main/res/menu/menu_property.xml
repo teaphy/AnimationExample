@@ -2,10 +2,39 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/mn_valueAnimatorStart"
-        android:title="ValueAnimator_Start"
-        />
+        android:title="ValueAnimator_Start" />
     <item
         android:id="@+id/mn_valueAnimatorCancel"
-        android:title="ValueAnimator_Cancel"
-        />
+        android:title="ValueAnimator_Cancel" />
+
+    <item
+        android:id="@+id/mn_valueAnimatorPause"
+        android:title="ValueAnimator_Pause" />
+
+    <item
+        android:id="@+id/mn_valueAnimatorEnd"
+        android:title="ValueAnimator_End" />
+    <item
+        android:id="@+id/mn_valueAnimatorReverse"
+        android:title="ValueAnimator_Reverse" />
+
+    <item
+        android:id="@+id/mn_valueAnimatorRestart"
+        android:title="ValueAnimator_Restart" />
+
+    <item
+        android:id="@+id/mn_defineTypeEvaluator"
+        android:title="TypeEvaluator" />
+
+    <item
+        android:id="@+id/mn_propertyValuesHolder"
+        android:title="PropertyValuesHolder" />
+
+    <item
+        android:id="@+id/mn_objectAnimator"
+        android:title="ObjectAnimator" />
+
+    <item
+        android:id="@+id/mn_interpolator"
+        android:title="Interpolator" />
 </menu>
