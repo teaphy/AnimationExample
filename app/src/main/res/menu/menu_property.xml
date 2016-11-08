@@ -37,4 +37,20 @@
     <item
         android:id="@+id/mn_interpolator"
         android:title="Interpolator" />
+
+    <item
+        android:id="@+id/mn_keyFrame"
+        android:title="KeyFrame" />
+
+    <item
+        android:id="@+id/mn_play"
+        android:title="play" />
+
+    <item
+        android:id="@+id/mn_playSequentially"
+        android:title="playSequentially" />
+
+    <item
+        android:id="@+id/mn_playTogether"
+        android:title="playTogether" />
 </menu>

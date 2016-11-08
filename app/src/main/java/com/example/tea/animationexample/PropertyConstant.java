@@ -14,8 +14,8 @@ public class PropertyConstant {
     public static String PROPERTY_ROTATION_X = "rotationX";
     public static String PROPERTY_ROTATION_Y = "rotationY";
     // 旋转的轴点和缩放的基准点，默认是View的中心点
-    public static String PROPERTY_PRVOT_X = "pivotX";
-    public static String PROPERTY_PRVOT_Y = "pivotY";
+    public static String PROPERTY_PIVOT_X = "pivotX";
+    public static String PROPERTY_PIVOT_Y = "pivotY";
     // 控制View基于pivotX和pivotY的缩放
     public static String PROPERTY_SCALE_X = "scaleX";
     public static String PROPERTY_SCALE_Y = "scaleY";

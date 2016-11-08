@@ -19,7 +19,7 @@
         android:layout_height="match_parent" >
         <Button
             android:id="@+id/btn_property"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Property"
             android:layout_gravity="center"
@@ -32,6 +32,7 @@
             android:layout_height="wrap_content"
             android:text="PropertyA"
             android:layout_gravity="center"
+            android:visibility="gone"
             android:textColor="@android:color/background_dark"
             android:background="@color/colorPrimaryDark"/>
     </FrameLayout>

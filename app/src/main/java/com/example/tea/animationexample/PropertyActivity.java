@@ -1,5 +1,9 @@
 package com.example.tea.animationexample;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.AnimatorSet;
+import android.animation.Keyframe;
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.animation.ValueAnimator;
@@ -11,9 +15,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
-import android.view.animation.AccelerateInterpolator;
-import android.view.animation.AnticipateInterpolator;
-import android.view.animation.Interpolator;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -76,6 +79,47 @@ public class PropertyActivity extends AppCompatActivity {
         mValueAnimator.setRepeatCount(ValueAnimator.INFINITE);
         // 设置动画执行时间
         mValueAnimator.setDuration(4000);
+        mValueAnimator.addListener(new Animator.AnimatorListener() {
+
+            public void onAnimationStart(Animator animation) {
+                Log.d("PropertyActivity", "动画开始");
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                Log.d("PropertyActivity", "动画结束");
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animation) {
+                Log.d("PropertyActivity", "动画取消");
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+                Log.d("PropertyActivity", "动画重复");
+            }
+        });
+
+        mValueAnimator.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                Log.d("PropertyActivity", "动画结束");
+            }
+        });
+
+        mValueAnimator.addPauseListener(new Animator.AnimatorPauseListener() {
+            @Override
+            public void onAnimationPause(Animator animation) {
+                Log.d("PropertyActivity", "动画暂停");
+            }
+
+            @Override
+            public void onAnimationResume(Animator animation) {
+                Log.d("PropertyActivity", "动画暂停");
+            }
+        });
+
         // 添加动画更新监听
         mValueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
@@ -137,6 +181,18 @@ public class PropertyActivity extends AppCompatActivity {
                 break;
             case R.id.mn_interpolator:
                 doInterpolator();
+                break;
+            case R.id.mn_keyFrame:
+                doKeyFrame();
+                break;
+            case R.id.mn_play:
+                doPlay();
+                break;
+            case R.id.mn_playTogether:
+                doPlayTogether();
+                break;
+            case R.id.mn_playSequentially:
+                doPlaySequentially();
                 break;
             default:
                 break;
@@ -278,6 +334,70 @@ public class PropertyActivity extends AppCompatActivity {
 
         animator.start();
         animatorA.start();
+    }
+
+    private void doKeyFrame() {
+
+        // 1. 创建Keyframe实例
+        // 参数1为该关键帧处于动画的执行百分比
+        // 参数2为该关键字的动画属性值
+        Keyframe keyframe_0 = Keyframe.ofFloat(0f, 0f);
+        Keyframe keyframe_1 = Keyframe.ofFloat(0.5f, 360f);
+        Keyframe keyframe_2 = Keyframe.ofFloat(1f, 0f);
+
+        // 设置Keyframe的插值器
+        keyframe_1.setInterpolator(new LinearInterpolator());
+        keyframe_2.setInterpolator(new AccelerateDecelerateInterpolator());
+
+        //  2. 创建PropertyValuesHolder对象
+        PropertyValuesHolder holder = PropertyValuesHolder.ofKeyframe(PropertyConstant.PROPERTY_ROTATION, keyframe_0, keyframe_1, keyframe_2);
+
+        // 3. 创建ValueAnimator实例
+        ObjectAnimator animator = ObjectAnimator.ofPropertyValuesHolder(btnProperty, holder);
+        animator.setDuration(5000);
+        animator.setRepeatCount(ValueAnimator.INFINITE);
+        animator.start();
+    }
+
+    private void doPlay() {
+        AnimatorSet bouncer = new AnimatorSet();
+        ObjectAnimator objectAnimatorA = ObjectAnimator.ofFloat(btnProperty, PropertyConstant.PROPERTY_TRANSLATION_X, 0f, 300f);
+        ObjectAnimator objectAnimatorB = ObjectAnimator.ofFloat(btnProperty, PropertyConstant.PROPERTY_TRANSLATION_Y, 0f, 300f);
+        ObjectAnimator objectAnimatorC = ObjectAnimator.ofFloat(btnProperty, PropertyConstant.PROPERTY_TRANSLATION_X, 300f, 0f);
+        ObjectAnimator objectAnimatorD = ObjectAnimator.ofFloat(btnProperty, PropertyConstant.PROPERTY_ROTATION, 0f, 360f);
+
+        bouncer.play(objectAnimatorA).before(objectAnimatorB);
+        bouncer.play(objectAnimatorB).with(objectAnimatorD);
+        bouncer.play(objectAnimatorC).after(objectAnimatorB);
+
+        bouncer.setDuration(6000);
+
+        bouncer.start();
+
+    }
+
+    private void doPlayTogether() {
+        AnimatorSet bouncer = new AnimatorSet();
+        ObjectAnimator objectAnimatorA = ObjectAnimator.ofFloat(btnProperty, PropertyConstant.PROPERTY_TRANSLATION_X, 0f, 300f);
+        ObjectAnimator objectAnimatorB = ObjectAnimator.ofFloat(btnProperty, PropertyConstant.PROPERTY_TRANSLATION_Y, 0f, 300f);
+        ObjectAnimator objectAnimatorC = ObjectAnimator.ofFloat(btnProperty, PropertyConstant.PROPERTY_ROTATION, 0f, 360f);
+
+        bouncer.playTogether(objectAnimatorA, objectAnimatorB, objectAnimatorC);
+
+        bouncer.setDuration(6000);
+        bouncer.start();
+    }
+
+    private void doPlaySequentially() {
+        AnimatorSet bouncer = new AnimatorSet();
+        ObjectAnimator objectAnimatorA = ObjectAnimator.ofFloat(btnProperty, PropertyConstant.PROPERTY_TRANSLATION_X, 0f, 300f);
+        ObjectAnimator objectAnimatorB = ObjectAnimator.ofFloat(btnProperty, PropertyConstant.PROPERTY_TRANSLATION_Y, 0f, 300f);
+        ObjectAnimator objectAnimatorC = ObjectAnimator.ofFloat(btnProperty, PropertyConstant.PROPERTY_ROTATION, 0f, 360f);
+
+        bouncer.playSequentially(objectAnimatorA, objectAnimatorB, objectAnimatorC);
+
+        bouncer.setDuration(6000);
+        bouncer.start();
     }
 
 }

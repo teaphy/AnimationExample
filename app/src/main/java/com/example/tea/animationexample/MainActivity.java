@@ -21,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
     Button btnProperty;
     @BindView(R.id.activity_main)
     LinearLayout activityMain;
+    @BindView(R.id.btn_layoutTransition)
+    Button btnLayoutTransition;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    @OnClick({R.id.btn_tween, R.id.btn_frame, R.id.btn_property})
+    @OnClick({R.id.btn_tween, R.id.btn_frame, R.id.btn_property, R.id.btn_layoutTransition})
     public void onClick(View view) {
         Intent intent;
         switch (view.getId()) {
@@ -44,6 +46,10 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.btn_property:
                 intent = new Intent(this, PropertyActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.btn_layoutTransition:
+                intent = new Intent(this, LayoutTransitionActivity.class);
                 startActivity(intent);
                 break;
             default:
