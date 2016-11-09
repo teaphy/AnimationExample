@@ -44,15 +44,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:columnCount="3"
-        android:animateLayoutChanges="true">
+        android:animateLayoutChanges="true"
+        android:visibility="gone">
 
     </GridLayout>
     <ListView
         android:id="@+id/lv_content"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:animateLayoutChanges="true"
-        android:visibility="gone">
+        android:layout_height="match_parent">
 
     </ListView>
 </LinearLayout>
